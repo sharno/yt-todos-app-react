@@ -1,23 +1,24 @@
-import React, {useState} from 'react';
+import React, { useState } from "react";
 import Header from "./components/Header/Header.view";
 import Footer from "./components/Footer/Footer.view";
-import {fetchData} from "./helpers";
+import { fetchData } from "./helpers";
 
-import './App.scss';
+import "./App.scss";
 import Tasks from "./components/Tasks/Tasks.view";
 
 function App() {
-  const [darkModeFlag, setDarkModeFlag] = useState(fetchData('darkModeFlag'));
+  const [darkModeFlag, setDarkModeFlag] = useState<boolean>(
+    fetchData("darkModeFlag")
+  );
 
-  const getAppClasses = `App ${darkModeFlag ? 'App--isDark' : ''}`;
+  const getAppClasses = `App ${darkModeFlag ? "App--isDark" : ""}`;
 
   return (
     <main className={getAppClasses}>
-      <Header darkModeFlag={darkModeFlag}
-              setDarkModeFlag={setDarkModeFlag}/>
+      <Header darkModeFlag={darkModeFlag} setDarkModeFlag={setDarkModeFlag} />
       <div className="App__wrapper">
-        <Tasks/>
-        <Footer/>
+        <Tasks />
+        <Footer />
       </div>
     </main>
   );
