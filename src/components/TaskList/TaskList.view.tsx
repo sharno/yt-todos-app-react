@@ -111,7 +111,7 @@ const TaskList = ({ tasks, setTasks }: Props) => {
                   />
                 </div>
                 <div className="TaskList__valueContent">
-                  {editModeID != null ? (
+                  {editModeID != null && task.id === editModeID ? (
                     <input
                       className="TaskList__valueInput"
                       type="text"
